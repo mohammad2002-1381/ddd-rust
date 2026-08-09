@@ -1,0 +1,19 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = { version = "0.8.9", features = ["multipart"] }
+tokio = { version = "1.49.0", features = ["full"] }
+serde = { version = "1.0.228", features = ["derive"] }
+jsonwebtoken = { version = "10.2.0", features = ["rust_crypto"] }
+tower-http = { version = "0.6.8", features = ["cors"] }
+serde_json = "1.0.149"
+thiserror = "2.0.18"
+
+application = { path = "../application" }
+infrastructure = { path = "../infrastructure" }
+domain = { path = "../domain" }
+read_model = { path = "../read_model" }
+query_handler = { path = "../query_handler" }

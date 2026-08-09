@@ -1,0 +1,16 @@
+[workspace]
+members = [
+    "crates/api",
+    "crates/application",
+    "crates/domain",
+    "crates/infrastructure",
+    "crates/query_handler",
+    "crates/read_model"]
+resolver = "3"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
