@@ -1,6 +1,6 @@
 use chrono::{DateTime, Utc};
 
-use crate::models::base_entity::{BaseEntity, IBaseEntity};
+use crate::{aggregate_root::IAggregateRoot, models::base_entity::{BaseEntity, IBaseEntity}};
 
 pub struct Product {
     base: BaseEntity<i32>,
@@ -53,3 +53,5 @@ impl IBaseEntity<i32> for Product {
         self.base.touch();
     }
 }
+
+impl IAggregateRoot<i32> for Product {}
