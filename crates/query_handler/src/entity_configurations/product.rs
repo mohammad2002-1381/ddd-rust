@@ -18,12 +18,6 @@ pub struct Model {
 pub enum Relation {}
 impl ActiveModelBehavior for ActiveModel {}
 
-impl From<Model> for Product {
-    fn from(model: Model) -> Self {
-        Product::new(&model.name, model.price, model.is_active, model.user_id)
-    }
-}
-
 impl IMapper<ProductDto> for Model {
     fn map(self) -> ProductDto {
         ProductDto {

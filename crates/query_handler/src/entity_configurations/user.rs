@@ -1,4 +1,4 @@
-use read_model::{dto::user_dto::UserDto, mapper::IMapper, models::user::{User, UserRoleType}};
+use read_model::{dto::user_dto::UserDto, mapper::IMapper, models::user::UserRoleType};
 use sea_orm::entity::prelude::*;
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel)]
@@ -20,19 +20,6 @@ pub struct Model {
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
 pub enum Relation {}
 impl ActiveModelBehavior for ActiveModel {}
-
-impl From<Model> for User {
-    fn from(value: Model) -> User {
-        User::new(
-            &value.first_name,
-            &value.last_name,
-            &value.email,
-            &value.password_hash,
-            value.role,
-            value.is_active
-        )
-    }
-}
 
 impl IMapper<UserDto> for Model {
     fn map(self) -> UserDto {

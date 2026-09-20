@@ -16,6 +16,7 @@ pub async fn handle<PR: IProductRepository>(command: UpdateProductCommand, user_
         .await?;
     match product {
         Some(mut pr) => {
+            pr.update(command.name, command.price, command.is_active);
             PR::update(&mut pr).await?;
             return Ok(command.id);
         },

@@ -41,6 +41,24 @@ impl Product {
     pub fn price(&self) -> i64 { self.price }
     pub fn is_active(&self) -> bool { self.is_active }
     pub fn user_id(&self) -> i32 { self.user_id }
+
+    pub fn update(&mut self, name: String, price: i64, is_active: bool) {
+        self.name = name;
+        self.price = price;
+        self.is_active = is_active;
+    }
+
+    pub fn set_name(&mut self, name: String) {
+        self.name = name;
+    }
+
+    pub fn set_price(&mut self, price: i64) {
+        self.price = price;
+    }
+
+    pub fn set_is_active(&mut self, is_active: bool) {
+        self.is_active = is_active;
+    }
 }
 
 impl IBaseEntity<i32> for Product {
