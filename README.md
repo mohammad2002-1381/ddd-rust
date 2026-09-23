@@ -1,6 +1,6 @@
-# Org Agent Platform
+# Rust + Clean Architecture + DDD Approach
 
-A Rust workspace that implements **Clean Architecture**, **Domain-Driven Design (DDD)**, and **CQRS**. Each layer is an isolated crate. `api` is the only binary (composition root + HTTP). Every other crate is a library.
+A Rust workspace built with **Clean Architecture**, **Domain-Driven Design (DDD)**, and **CQRS**. Each layer is an isolated crate. `api` is the only binary (composition root + HTTP). Every other crate is a library.
 
 The write side (`domain` + `infrastructure`) and the read side (`read_model` + `query_handler`) are separate stacks. Each stack owns its own database context. Today both pools read `DATABASE_URL`, so they can share one PostgreSQL instance or later point at different databases without changing application code.
 
@@ -475,7 +475,7 @@ cargo run -- up
 ## Project structure
 
 ```
-org-agent-platform-rust/
+clean-architecture-ddd-rust/
 ├── Cargo.toml                      workspace (resolver 3)
 ├── docker-compose.yaml             api + postgres + redis + pgadmin
 ├── crates/
